@@ -4,7 +4,6 @@ import { PayloadAction } from '@reduxjs/toolkit';
 import { User } from '../reducers/users';
 
 export function* updateUsers() {
-    console.log('sd')
     yield put({ type: 'mainApp/updateIsLoading', payload: true })
     try {
         const response = yield axios.get('http://localhost:4000/users');
@@ -18,8 +17,6 @@ export function* updateUsers() {
             })
             yield put({ type: 'users/updateUsers', payload: users })
         }
-        console.log('sd')
-
     
     } catch (err) {
         console.log(err);;
@@ -53,7 +50,6 @@ export function* deleteUserSaga(action: PayloadAction<any>) {
     const { email } = action.payload
 
     if (!email) {
-        // check if there is allredy an emile in db
         return alert('please fill all the fields')
     };
     const data = {
