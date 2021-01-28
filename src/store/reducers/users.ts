@@ -18,9 +18,6 @@ const userSlice = createSlice({
     name: 'users',
     initialState,
     reducers: {
-        fetchUsers(state) {
-
-        },
         updateUsers(state, action?: PayloadAction<User[] | undefined>) {
             if (action === undefined) {
                 return;
